@@ -1,0 +1,12 @@
+[Line]
+CHANNEL_ACCESS_TOKEN = Your Line Channel access token 
+CHANNEL_SECRET = Your Line user ID
+[AzureOpenAI]
+NAME = GPT model name for Azure deployment
+KEY = Azure resource key
+VERSION = model version #reference https://learn.microsoft.com/zh-tw/azure/ai-services/openai/concepts/models
+BASE = Azure resource endpoint
+[AzureOpenAIEmbeddingModel]
+NAME = Embedding model name for Azure deployment
+
+
