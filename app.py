@@ -1,17 +1,25 @@
+# Python package
 import sys
 import configparser
 import os
 
-# Azure Speech
+# Langchain
 from langchain_openai import AzureOpenAIEmbeddings, AzureChatOpenAI
 from langchain_community.vectorstores import Qdrant
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
+
+# Qrant
 from qdrant_client import QdrantClient
+
+# Output format tool
 from rich import print as pprint
 
+# Flask
 from flask import Flask, request, abort
+
+# Line SDK
 from linebot.v3 import WebhookHandler
 from linebot.v3.exceptions import InvalidSignatureError
 from linebot.v3.webhooks import (
