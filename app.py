@@ -93,19 +93,24 @@ def message_text(event):
 azure_api_key = config['AzureOpenAI']['KEY']
 openai_model = config['AzureOpenAI']['NAME']
 openai_api_version = config['AzureOpenAI']['VERSION']
-embedding_model = config['AzureOpenAIEmbeddingModel']['NAME']
 azure_endpoint = config['AzureOpenAI']['BASE']
+embedding_model = config['AzureOpenAIEmbeddingModel']['NAME']
 
 
 def azure_openai(user_input):
     embedding_model = AzureOpenAIEmbeddings(
-        api_key=azure_api_key,
-        azure_deployment=embedding_model,
+        api_key=config['AzureOpenAIEmbeddingModel']['KEY'],
+        azure_deployment=config['AzureOpenAIEmbeddingModel']['NAME'],
         openai_api_version=openai_api_version,
-        azure_endpoint=azure_endpoint,
+        azure_endpoint=config['AzureOpenAIEmbeddingModel']['BASE'],
     )
 
-    client = QdrantClient()
+    client = QdrantClient(
+        url=config['Qdrant']['URL'],
+        port=6333,
+        api_key=config['Qdrant']['API_KEY'],
+        https=True
+    )
     collection_name = "legalassistant"
 
     qdrant = Qdrant(
