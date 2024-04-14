@@ -59,6 +59,11 @@ handler = WebhookHandler(channel_secret)
 configuration = Configuration(access_token=channel_access_token)
 
 
+@app.route("/", methods=["GET"])
+def running():
+    return {"message": "docker is running"}
+
+
 @app.route("/callback", methods=["POST"])
 def callback():
     # get X-Line-Signature header value
