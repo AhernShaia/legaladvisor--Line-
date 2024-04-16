@@ -1,4 +1,4 @@
-# 使用 Python 3.12 slim 最為基礎鏡像
+# 使用 Python 3.12 slim 做為基礎鏡像
 FROM python:3.12-slim
 
 # 指定工作目錄

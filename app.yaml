@@ -1,0 +1,28 @@
+runtime: python312
+
+#service: legaladvisor-line-v1
+
+env: standard
+
+instance_class: F1
+# instance_class: F4
+
+# automatic_scaling:
+#   target_cpu_utilization: 0.65
+#   min_instances: 5
+#   max_instances: 100
+automatic_scaling:
+  target_cpu_utilization: 0.5
+  min_instances: 10
+  max_instances: 200
+  min_pending_latency: 30ms
+  max_pending_latency: automatic
+  # max_concurrent_requests: 50
+  max_concurrent_requests: 20
+
+env_variables:
+  # 在这里设置您的环境变量
+  # 例如：
+  # ENV_VAR_NAME: valuecd 
+
+entrypoint: gunicorn -b :$PORT main:app
